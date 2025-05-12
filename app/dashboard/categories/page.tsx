@@ -41,7 +41,11 @@ export default function CategoriesPage() {
                     outerRadius={110}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent, x, y }) => (
+                      <text x={x} y={y} textAnchor="middle" dominantBaseline="central" fontSize={12} fill="#222">
+                        {name}: {(percent * 100).toFixed(0)}%
+                      </text>
+                    )}
                   >
                     {data.map((entry, index) => (
                       <Cell

@@ -12,6 +12,16 @@ export default function DashboardLayoutClient({ children }: { children: React.Re
       <div className={`transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-0'} overflow-hidden`}> 
         <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
       </div>
+      {/* Tombol hamburger di layout saat sidebar di-hide */}
+      {!isSidebarOpen && (
+        <button
+          className="fixed top-4 left-4 z-50 p-2 bg-white rounded shadow"
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Show sidebar"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      )}
       {/* Main area with header/topbar */}
       <div className="flex-1 flex flex-col">
         {/* Header/topbar */}
