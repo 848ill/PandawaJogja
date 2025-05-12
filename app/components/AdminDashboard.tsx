@@ -96,7 +96,7 @@ const AdminDashboard = () => {
       setStats(sampleData[timeframe]);
       setLoading(false);
     }, 800);
-  }, [timeframe, sampleData]);
+  }, [timeframe]);
   
   if (loading || !stats) {
     return (
