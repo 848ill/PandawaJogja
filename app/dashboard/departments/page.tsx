@@ -13,7 +13,6 @@ const data = [
 export default function DepartmentsPage() {
   // Calculate insights
   const avgResponseTime = data.reduce((sum, dept) => sum + dept.responseTime, 0) / data.length;
-  const avgResolutionTime = data.reduce((sum, dept) => sum + dept.resolutionTime, 0) / data.length;
   const avgSatisfaction = data.reduce((sum, dept) => sum + dept.satisfaction, 0) / data.length;
   
   const bestPerformer = data.reduce((best, dept) => 

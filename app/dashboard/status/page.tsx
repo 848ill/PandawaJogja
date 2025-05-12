@@ -101,7 +101,7 @@ export default function StatusPage() {
               <h4 className="text-sm font-medium text-gray-700 mb-2">Action Items:</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• Prioritize review of {submittedCount} new submissions</li>
-                <li>• Investigate cases stuck in 'Under Review'</li>
+                <li>• Investigate cases stuck in &#39;Under Review&#39;</li>
                 <li>• Follow up on {data.find(s => s.name === 'In Progress')?.value} in-progress cases</li>
                 <li>• Consider process improvements for faster resolution</li>
               </ul>
