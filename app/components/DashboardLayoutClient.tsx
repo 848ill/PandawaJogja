@@ -14,7 +14,7 @@ export default function DashboardLayoutClient({ children }: { children: React.Re
         {/* Header/topbar */}
         <header className="flex items-center h-14 px-2 sm:px-4 border-b bg-white shadow-sm">
           <button
-            className="p-2 rounded hover:bg-gray-100"
+            className="p-2 rounded hover:bg-gray-100 md:hidden"
             onClick={() => setSidebarOpen((v) => !v)}
             aria-label="Toggle sidebar"
           >
