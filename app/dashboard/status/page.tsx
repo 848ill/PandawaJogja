@@ -93,7 +93,7 @@ export default function StatusPage() {
                 <span className="text-sm font-medium text-gray-700">Resolution Rate</span>
               </div>
               <p className="mt-1 text-sm text-gray-600">
-                {resolvedRate}% resolution rate achieved. Focus on moving 'In Progress' cases to resolution.
+                {resolvedRate}% resolution rate achieved. Focus on moving In Progress cases to resolution.
               </p>
             </div>
 
