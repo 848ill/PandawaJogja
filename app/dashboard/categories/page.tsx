@@ -41,9 +41,9 @@ export default function CategoriesPage() {
                     outerRadius={110}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ name, percent, x, y }) => (
-                      <text x={x} y={y} textAnchor="middle" dominantBaseline="central" fontSize={12} fill="#222">
-                        {name}: {(percent * 100).toFixed(0)}%
+                    label={({ name, percent, x, y, index }) => (
+                      <text x={x} y={y} textAnchor="middle" dominantBaseline="central" fontSize={12} fill={COLORS[index % COLORS.length]}>
+                        {(percent * 100).toFixed(0)}%
                       </text>
                     )}
                   >
