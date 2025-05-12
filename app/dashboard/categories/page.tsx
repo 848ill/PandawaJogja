@@ -20,20 +20,18 @@ const renderCustomLabel = ({ cx = 0, cy = 0, midAngle = 0, innerRadius = 0, oute
   const x = Number(cx) + radius * Math.cos(-midAngle * RADIAN);
   const y = Number(cy) + radius * Math.sin(-midAngle * RADIAN);
   return (
-    <g>
-      <rect
-        x={x - 38}
-        y={y - 11}
-        width={76}
-        height={22}
-        rx={6}
-        fill="white"
-        fillOpacity={0.85}
-      />
-      <text x={x} y={y} fill={COLORS[index % COLORS.length]} fontSize={11} fontWeight={500} textAnchor="middle" dominantBaseline="central">
-        {`${data[index].name}: ${(percent * 100).toFixed(0)}%`}
-      </text>
-    </g>
+    <text
+      x={x}
+      y={y}
+      fill={COLORS[index % COLORS.length]}
+      fontSize={14}
+      fontWeight="bold"
+      textAnchor="middle"
+      dominantBaseline="middle"
+      style={{ textShadow: '0 1px 2px #fff, 0 -1px 2px #fff' }}
+    >
+      {`${data[index].name}: ${(percent * 100).toFixed(0)}%`}
+    </text>
   );
 };
 
