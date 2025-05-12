@@ -31,7 +31,6 @@ const AnalyticsInsights: React.FC<InsightProps> = ({ stats, timeframe }) => {
   // Calculate insights
   const totalComplaints = stats.totalComplaints;
   const avgResponseTime = stats.responseTimeAvg;
-  const avgResolutionTime = stats.resolutionTimeAvg;
   const satisfactionRate = stats.satisfactionRate;
 
   // Find most common category
@@ -121,7 +120,7 @@ const AnalyticsInsights: React.FC<InsightProps> = ({ stats, timeframe }) => {
             </div>
             <div>
               <p className="text-sm text-gray-500">Resolution Time</p>
-              <span className="text-2xl font-bold text-yellow-500">{avgResolutionTime}h</span>
+              <span className="text-2xl font-bold text-yellow-500">{stats.resolutionTimeAvg}h</span>
             </div>
           </div>
           {avgResponseTime > 20 && (
