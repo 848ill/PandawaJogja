@@ -41,7 +41,7 @@ export default function CategoriesPage() {
                     outerRadius={120}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ name, percent }) => `${name}`}
+                    label={({ name }) => name}
                   >
                     {data.map((entry, index) => (
                       <Cell
