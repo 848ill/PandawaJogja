@@ -22,6 +22,65 @@ interface SampleData {
   [key: string]: Stats;
 }
 
+// Sample data - in production, this would come from API
+const sampleData: SampleData = {
+  week: {
+    complaintTrend: [
+      { name: 'Mon', count: 21 },
+      { name: 'Tue', count: 18 },
+      { name: 'Wed', count: 24 },
+      { name: 'Thu', count: 16 },
+      { name: 'Fri', count: 26 },
+      { name: 'Sat', count: 12 },
+      { name: 'Sun', count: 8 },
+    ],
+    categoryDistribution: [
+      { name: 'Healthcare', value: 35 },
+      { name: 'Transportation', value: 25 },
+      { name: 'Education', value: 18 },
+      { name: 'Infrastructure', value: 15 },
+      { name: 'Other', value: 7 },
+    ],
+    statusBreakdown: [
+      { name: 'Submitted', value: 42 },
+      { name: 'Under Review', value: 28 },
+      { name: 'In Progress', value: 37 },
+      { name: 'Resolved', value: 19 },
+      { name: 'Closed', value: 12 },
+    ],
+    responseTimeAvg: 18.4,
+    resolutionTimeAvg: 84.2,
+    totalComplaints: 138,
+    satisfactionRate: 76
+  },
+  month: {
+    complaintTrend: [
+      { name: 'Week 1', count: 125 },
+      { name: 'Week 2', count: 132 },
+      { name: 'Week 3', count: 116 },
+      { name: 'Week 4', count: 128 },
+    ],
+    categoryDistribution: [
+      { name: 'Healthcare', value: 156 },
+      { name: 'Transportation', value: 112 },
+      { name: 'Education', value: 85 },
+      { name: 'Infrastructure', value: 68 },
+      { name: 'Other', value: 30 },
+    ],
+    statusBreakdown: [
+      { name: 'Submitted', value: 82 },
+      { name: 'Under Review', value: 114 },
+      { name: 'In Progress', value: 152 },
+      { name: 'Resolved', value: 76 },
+      { name: 'Closed', value: 37 },
+    ],
+    responseTimeAvg: 20.1,
+    resolutionTimeAvg: 92.5,
+    totalComplaints: 501,
+    satisfactionRate: 72
+  }
+};
+
 const AdminDashboard = () => {
   const [timeframe, setTimeframe] = useState('week');
   const [stats, setStats] = useState<Stats | null>(null);
@@ -29,65 +88,6 @@ const AdminDashboard = () => {
   
   // Colors for charts
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
-  
-  // Sample data - in production, this would come from API
-  const sampleData: SampleData = {
-    week: {
-      complaintTrend: [
-        { name: 'Mon', count: 21 },
-        { name: 'Tue', count: 18 },
-        { name: 'Wed', count: 24 },
-        { name: 'Thu', count: 16 },
-        { name: 'Fri', count: 26 },
-        { name: 'Sat', count: 12 },
-        { name: 'Sun', count: 8 },
-      ],
-      categoryDistribution: [
-        { name: 'Healthcare', value: 35 },
-        { name: 'Transportation', value: 25 },
-        { name: 'Education', value: 18 },
-        { name: 'Infrastructure', value: 15 },
-        { name: 'Other', value: 7 },
-      ],
-      statusBreakdown: [
-        { name: 'Submitted', value: 42 },
-        { name: 'Under Review', value: 28 },
-        { name: 'In Progress', value: 37 },
-        { name: 'Resolved', value: 19 },
-        { name: 'Closed', value: 12 },
-      ],
-      responseTimeAvg: 18.4,
-      resolutionTimeAvg: 84.2,
-      totalComplaints: 138,
-      satisfactionRate: 76
-    },
-    month: {
-      complaintTrend: [
-        { name: 'Week 1', count: 125 },
-        { name: 'Week 2', count: 132 },
-        { name: 'Week 3', count: 116 },
-        { name: 'Week 4', count: 128 },
-      ],
-      categoryDistribution: [
-        { name: 'Healthcare', value: 156 },
-        { name: 'Transportation', value: 112 },
-        { name: 'Education', value: 85 },
-        { name: 'Infrastructure', value: 68 },
-        { name: 'Other', value: 30 },
-      ],
-      statusBreakdown: [
-        { name: 'Submitted', value: 82 },
-        { name: 'Under Review', value: 114 },
-        { name: 'In Progress', value: 152 },
-        { name: 'Resolved', value: 76 },
-        { name: 'Closed', value: 37 },
-      ],
-      responseTimeAvg: 20.1,
-      resolutionTimeAvg: 92.5,
-      totalComplaints: 501,
-      satisfactionRate: 72
-    }
-  };
   
   useEffect(() => {
     // Simulate API fetch
