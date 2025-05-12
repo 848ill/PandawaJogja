@@ -2,6 +2,7 @@
 
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { LightBulbIcon, ChartBarIcon, ArrowTrendingUpIcon } from '@heroicons/react/24/outline';
+import { PieLabelRenderProps } from 'recharts';
 
 const data = [
   { name: 'Healthcare', value: 35 },
@@ -12,6 +13,18 @@ const data = [
 ];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
+
+const renderCustomLabel = ({ cx = 0, cy = 0, midAngle = 0, innerRadius = 0, outerRadius = 0, percent = 0, index = 0 }: PieLabelRenderProps & { index: number }) => {
+  const RADIAN = Math.PI / 180;
+  const radius = Number(innerRadius) + (Number(outerRadius) - Number(innerRadius)) * 0.5;
+  const x = Number(cx) + radius * Math.cos(-midAngle * RADIAN);
+  const y = Number(cy) + radius * Math.sin(-midAngle * RADIAN);
+  return (
+    <text x={x} y={y} fill={COLORS[index % COLORS.length]} fontSize={12} textAnchor="middle" dominantBaseline="central">
+      {`${data[index].name}: ${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 export default function CategoriesPage() {
   // Calculate insights
@@ -41,11 +54,7 @@ export default function CategoriesPage() {
                     outerRadius={110}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ name, percent, x, y, index }) => (
-                      <text x={x} y={y} textAnchor="middle" dominantBaseline="central" fontSize={12} fill={COLORS[index % COLORS.length]}>
-                        {name}: {(percent * 100).toFixed(0)}%
-                      </text>
-                    )}
+                    label={renderCustomLabel}
                   >
                     {data.map((entry, index) => (
                       <Cell
