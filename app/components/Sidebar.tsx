@@ -58,11 +58,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         onClick={onClose}
       />
       <aside
-        className={`fixed z-40 inset-y-0 left-0 w-64 bg-white border-r border-gray-200 shadow-lg transform transition-transform duration-300
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-          md:relative md:translate-x-0 md:w-64 md:block`}
+        className={`fixed z-40 inset-y-0 left-0 w-64 h-screen bg-white border-r border-gray-200 shadow-lg transform transition-transform duration-300
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
-        <div className="p-4 flex items-center justify-between md:block">
+        <div className="flex items-center p-4 border-b border-gray-100">
           <button className="p-2 mr-2" onClick={onClose} aria-label="Hide sidebar">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
